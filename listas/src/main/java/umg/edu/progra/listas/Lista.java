@@ -184,6 +184,32 @@ public class Lista {
             temp = temp.enlace;
         }
         return count;
+
+        ublic void ordenarAscendente() {
+            if (cabeza == null || cabeza.enlace == null) {
+                return; // La lista está vacía o tiene un solo elemento
+            }
+
+            boolean cambiado;
+            do {
+                cambiado = false;
+                Nodo actual = cabeza;
+                Nodo anterior = null;
+                Nodo siguiente = cabeza.enlace;
+
+                while (siguiente != null) {
+                    if (actual.dato > siguiente.dato) {
+                        // Intercambiar valores en lugar de nodos
+                        int temp = actual.dato;
+                        actual.dato = siguiente.dato;
+                        siguiente.dato = temp;
+                        cambiado = true;
+                    }
+                    actual = siguiente;
+                    siguiente = siguiente.enlace;
+                }
+            } while (cambiado);
+        }
     }
     
     
